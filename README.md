@@ -1,7 +1,3 @@
-# tazah_tech_sale
-
-A new Flutter project.
-
 ## Getting Started
 
 This project is the basic boiler plate code for bloc state management of flutter. There are two screens(LoginScreen, HomeScreen) and two cubits(AuthCubit,ExampleCubit). 
