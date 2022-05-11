@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
-import 'package:tazah_tech_sale/constants/constants.dart';
+import 'package:tazah_tech_sale/config/app_colors.dart';
+import 'package:tazah_tech_sale/config/app_screen_names.dart';
 import 'package:tazah_tech_sale/cubits/auth_example_cubit/auth_cubit.dart';
-import 'package:tazah_tech_sale/widgets/circular_button.dart';
-import 'package:tazah_tech_sale/widgets/custom_text_field.dart';
+import 'package:tazah_tech_sale/views/widgets/circular_button.dart';
+import 'package:tazah_tech_sale/views/widgets/custom_text_field.dart';
 
 class LoginScreen extends StatelessWidget {
   TextEditingController userNameController = TextEditingController();
@@ -23,8 +24,9 @@ class LoginScreen extends StatelessWidget {
         listener: (context, state) {
           if (state is Authenticated) {
             Navigator.of(context).pushNamedAndRemoveUntil(
-                ScreenNames.homeScreen, (Route<dynamic> route) => false,
-                );
+              ScreenNames.homeScreen,
+              (Route<dynamic> route) => false,
+            );
             userEmailController.clear();
             userNameController.clear();
           }
@@ -51,8 +53,8 @@ class LoginScreen extends StatelessWidget {
             child: Form(
               key: _formKey,
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 18 ),
-                height: 400 ,
+                padding: const EdgeInsets.symmetric(horizontal: 18),
+                height: 400,
                 child: Column(
                   children: [
                     ///login label
@@ -61,7 +63,7 @@ class LoginScreen extends StatelessWidget {
                       child: Text(
                         'Log In',
                         style: TextStyle(
-                            fontSize: 26 ,
+                            fontSize: 26,
                             fontWeight: FontWeight.w900,
                             color: AppColors.white),
                       ),
@@ -81,8 +83,8 @@ class LoginScreen extends StatelessWidget {
                             }
                           }),
                     ),
-                    SizedBox(
-                      height: 20 ,
+                    const SizedBox(
+                      height: 20,
                     ),
 
                     ///password textfield
@@ -97,7 +99,7 @@ class LoginScreen extends StatelessWidget {
                           if (email!.isEmpty) {
                             return 'Please enter email';
                           } else if (!RegExp(
-                              r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                  r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
                               .hasMatch(email)) {
                             return 'Please enter valild email';
                           }
@@ -105,7 +107,7 @@ class LoginScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      height: 20 ,
+                      height: 20,
                     ),
 
                     ///login button
@@ -125,16 +127,13 @@ class LoginScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(
-                      height: 20 ,
+                    const SizedBox(
+                      height: 20,
                     ),
 
-
-
                     ///registration label
-                    Spacer(
+                    const Spacer(
                       flex: 3,
-
                     ),
                   ],
                 ),
@@ -145,5 +144,4 @@ class LoginScreen extends StatelessWidget {
       ),
     );
   }
-
 }

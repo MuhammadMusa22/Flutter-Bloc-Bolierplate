@@ -8,7 +8,6 @@ import 'package:tazah_tech_sale/cubits/auth_example_cubit/auth_cubit.dart';
 
 import '../mock_repositories/user_mockup_repo.dart';
 
-
 void main() {
   group('Authentication cubit test', () {
     late AuthCubit? authCubit;
@@ -30,8 +29,8 @@ void main() {
         act: (cubit) => cubit.getListOfUsers(
             userName: 'musa223', emailPassword: 'musa22@gmail.com'),
         expect: () => [
-          AuthenticationLoading(),
-          AuthenticationFailed(),
-        ]);
+              AuthenticationLoading(),
+              AuthenticationFailed(),
+            ]);
   });
 }

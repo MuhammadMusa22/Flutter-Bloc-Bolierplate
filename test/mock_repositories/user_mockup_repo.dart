@@ -1,6 +1,5 @@
-
-import 'package:tazah_tech_sale/data/auth_repository/auth_repository.dart';
-import 'package:tazah_tech_sale/models/user_model.dart';
+import 'package:tazah_tech_sale/data/models/user_model.dart';
+import 'package:tazah_tech_sale/data/repositories/auth_repository/auth_repository.dart';
 
 final usersList = <User>[
   User(

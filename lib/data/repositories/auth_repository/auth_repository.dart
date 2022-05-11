@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:tazah_tech_sale/constants/constants.dart';
-import 'package:tazah_tech_sale/models/user_model.dart';
+import 'package:tazah_tech_sale/config/app_constants.dart';
+import 'package:tazah_tech_sale/data/models/user_model.dart';
 
 abstract class AuthRepoInterface {
   Future<List<User>?> fetchUsers();
