@@ -1,4 +1,4 @@
-import 'package:tazah_tech_sale/data/repositories/example_repository/example_repository.dart';
+import 'package:tazah_tech_sale/data/repositories/example_repository.dart';
 
 class MockExampleRepo implements ExampleRepositoryAbstract {
   @override

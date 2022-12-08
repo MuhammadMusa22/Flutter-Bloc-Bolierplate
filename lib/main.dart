@@ -3,10 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tazah_tech_sale/config/app_routes.dart';
 import 'package:tazah_tech_sale/cubits/auth_example_cubit/auth_cubit.dart';
+import 'package:tazah_tech_sale/cubits/movie_list_cubit/movies_list_cubit.dart';
 import 'package:tazah_tech_sale/cubits/sale_exmple_cubit/example_cubit.dart';
-import 'package:tazah_tech_sale/data/repositories/auth_repository/auth_repository.dart';
+import 'package:tazah_tech_sale/data/repositories/auth_repository.dart';
+import 'package:tazah_tech_sale/views/screens/movies.dart';
 import 'config/app_screen_names.dart';
-import 'data/repositories/example_repository/example_repository.dart';
+import 'cubits/movie_details_cubit/movie_details_cubit.dart';
+import 'data/repositories/example_repository.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,10 +25,20 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<AuthCubit>(
-            create: (context) => AuthCubit(authRepository: AuthRepository())),
+          create: (context) => AuthCubit(
+            authRepository: AuthRepository(),
+          ),
+        ),
         BlocProvider<ExampleCubit>(
-            create: (context) =>
-                ExampleCubit(exampleRepository: ExampleRepository())),
+            create: (context) => ExampleCubit(
+                  exampleRepository: ExampleRepository(),
+                )),
+        BlocProvider<MoviesListCubit>(
+          create: (context) => MoviesListCubit(),
+        ),
+        BlocProvider<MovieDetailsCubit>(
+          create: (context) => MovieDetailsCubit(),
+        ),
       ],
       child: ScreenUtilInit(
         designSize: const Size(360, 690),
@@ -36,7 +49,8 @@ class MyApp extends StatelessWidget {
               primarySwatch: Colors.blue,
             ),
             onGenerateRoute: AppRoutes().generateRoute,
-            initialRoute: ScreenNames.loginScreen,
+            // initialRoute: ScreenNames.loginScreen,
+            home: const MovieScreen(),
           );
         },
       ),

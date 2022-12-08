@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:tazah_tech_sale/data/models/user_model.dart';
-import 'package:tazah_tech_sale/data/repositories/auth_repository/auth_repository.dart';
+import 'package:tazah_tech_sale/data/repositories/auth_repository.dart';
 
 part 'auth_state.dart';
 

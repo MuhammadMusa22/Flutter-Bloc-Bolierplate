@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:tazah_tech_sale/cubits/sale_exmple_cubit/example_cubit_state.dart';
-import 'package:tazah_tech_sale/data/repositories/example_repository/example_repository.dart';
+import 'package:tazah_tech_sale/data/repositories/example_repository.dart';
 
 class ExampleCubit extends Cubit<ExampleCubitState> {
   final ExampleRepositoryAbstract exampleRepository;
